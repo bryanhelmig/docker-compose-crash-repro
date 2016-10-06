@@ -1,0 +1,8 @@
+web:
+  build: .
+  volumes:
+    - .:/example
+  ports:
+    - "8888:8888"
+  working_dir: /example
+  command: python manage.py runserver 0.0.0.0:8888

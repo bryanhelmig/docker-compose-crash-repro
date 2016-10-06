@@ -1,0 +1,23 @@
+{% load static from staticfiles %}
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Test Loading</title>
+</head>
+
+<body>
+  <h1>hello world!</h1>
+
+  {% for path in image_paths %}
+    <div style="background-image: url('{% static path %}');width:128px;height:128px"></div>
+  {% endfor %}
+
+  {% for path in js_paths %}
+    <script src="{% static path %}"></script>
+  {% endfor %}
+
+</body>
+</html>
