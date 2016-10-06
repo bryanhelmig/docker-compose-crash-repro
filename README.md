@@ -1,6 +1,6 @@
 ## Docker for Mac Native Crashing on Heavy IO
 
-To reproduce https://github.com/docker/hyperkit/issues/50 follow this:
+To reproduce https://github.com/docker/hyperkit/issues/50 which seems predicated on heavy IO through osxfs - follow this:
 
 ```bash
 git clone git@github.com:bryanhelmig/docker-compose-crash-repro.git
@@ -23,4 +23,15 @@ web_1  | 2016-10-06T19:15:35.842664356Z [06/Oct/2016 19:15:35] "GET /static/js/3
 Unexpected API error for dockercomposecrashrepro_web_1 (HTTP code 500)
 Response body:
 dial unix /Users/bryanhelmig/Library/Containers/com.docker.docker/Data/*00000003.00000948: connect: connection refused
+```
+
+### Rebuilding Assets w/ More/Less Content
+
+Default builds a dozen large JS files (3mb each), and 600 128px pngs, but you can tweak that to apply more/less pressure on IO:
+
+```bash
+vim make_files.py # change JS_COUNT, JS_BYTES_EACH, IMAGE_COUNT, IMAGE_PX_SIZE constants
+rm -rf assets
+python make_files.py
+# re-run docker-compose up -d, etc...
 ```
