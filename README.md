@@ -32,6 +32,6 @@ Default builds a dozen large JS files (3mb each), and 600 128px pngs, but you ca
 ```bash
 vim make_files.py # change JS_COUNT, JS_BYTES_EACH, IMAGE_COUNT, IMAGE_PX_SIZE constants
 rm -rf assets
-python make_files.py
+docker-compose run web python make_files.py
 # re-run docker-compose up -d, etc...
 ```
