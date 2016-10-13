@@ -1,3 +1,5 @@
+> This is fixed as of Docker for Mac Version 1.12.2-beta28 (12906).
+
 ## Docker for Mac Native Crashing on Heavy IO
 
 To reproduce https://github.com/docker/hyperkit/issues/50 which seems predicated on heavy IO through osxfs - follow this:
